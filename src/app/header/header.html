@@ -1,12 +1,18 @@
 <mat-toolbar class="header" color="primary">
-    <button style="color: white;" matButton>
+    <button style="color: white;" matButton routerLink="/products">
         <mat-icon aria-hidden="false" aria-label="Example store icon" fontIcon="store"></mat-icon>
     </button>
     
     <span>Angular Shop</span>
     <span class="spacer"></span>
-    <button style="color: white;" mat-button>Products</button>
-    <button style="color: white;" matButton>
-        <mat-icon aria-hidden="false" aria-label="Example shopping cart icon" fontIcon="shopping_cart"></mat-icon>
+    <a style="color: white;"
+    mat-button
+    routerLink="/products"
+    routerLinkActive="active-link"
+  >
+    Products
+  </a>
+    <button style="color: white;" matButton routerLink="/cart" routerLinkActive="active-link">
+        <mat-icon [matBadge]="cartItems().length" [matBadgeHidden]="cartItems().length === 0" aria-hidden="false" aria-label="Example shopping cart icon" fontIcon="shopping_cart"></mat-icon>
     </button>
 </mat-toolbar>

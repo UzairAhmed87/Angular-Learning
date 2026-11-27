@@ -1,0 +1,35 @@
+.cart {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+  
+  .cart-header,
+  .cart-row,
+  .cart-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .cart-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .cart-row {
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .qty {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .empty {
+    text-align: center;
+    padding: 3rem 1rem;
+  }

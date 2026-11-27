@@ -1,6 +1,25 @@
-<div class="products-grid">
-    <app-products-card/>
-    <app-products-card/>
-    <app-products-card/>
-    <app-products-card/>
-</div>  
+<div>
+  @if (isLoading()) {
+    <p>Loading products...</p>
+  } @else if (error()) {
+    <p class="error">{{ error() }}</p>
+  } @else {
+    <mat-form-field appearance="outline" class="search-form-field">
+      <mat-label>Search Products</mat-label>
+      <input matInput placeholder="Search Products" [(ngModel)]="searchTerm" />
+     </mat-form-field>
+     <p>Search Term: {{searchTerm()}}</p>
+      <div class="products-grid">
+        @for (product of filteredProducts(); track product.id) {
+          <app-products-card (addToCart)="onAddToCart($event)" [product]="product"/>
+        }@empty{
+            <div class="empty-state">
+                <mat-icon>inventory_2</mat-icon>
+                <h2>No Products Matched your search term.</h2>
+                <p>Check back later for new arrivals.</p>
+            </div>
+        }
+      </div>
+  }
+ 
+</div>

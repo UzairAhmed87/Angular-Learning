@@ -1,0 +1,50 @@
+<section class="cart">
+    <header class="cart-header">
+      <h1>Your Cart</h1>
+      @if (items().length > 0) {
+        <button mat-stroked-button type="button" (click)="clear()">
+          Clear cart
+        </button>
+      }
+    </header>
+  
+    @if (items().length === 0) {
+      <div class="empty">
+        <mat-icon>shopping_cart</mat-icon>
+        <h2>Your cart is empty</h2>
+        <p>Add products from the shop to see them here.</p>
+        <a mat-flat-button routerLink="/products">Browse products</a>
+      </div>
+    } @else {
+      <ul class="cart-list">
+        @for (item of items(); track item.product.id) {
+          <li class="cart-row">
+            <div class="info">
+              <h3>{{ item.product.name }}</h3>
+              <p>{{ item.product.price | currency: 'PKR':'symbol-narrow' }}</p>
+            </div>
+  
+            <div class="qty">
+              <button mat-icon-button type="button" (click)="decrease(item.product)" aria-label="Decrease quantity">
+                <mat-icon>remove</mat-icon>
+              </button>
+              <span>{{ item.quantity }}</span>
+              <button mat-icon-button type="button" (click)="increase(item.product)" aria-label="Increase quantity">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+  
+            <p class="line-total">
+              {{ item.product.price * item.quantity | currency: 'PKR':'symbol-narrow' }}
+            </p>
+          </li>
+        }
+      </ul>
+  
+      <footer class="cart-footer">
+        <strong>Total: {{ total() | currency: 'PKR':'symbol-narrow' }}</strong>
+        <a mat-flat-button routerLink="/checkout">Checkout</a>
+      </footer>
+      
+    }
+  </section>

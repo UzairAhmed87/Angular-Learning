@@ -1,0 +1,50 @@
+<section class="checkout">
+    <h1>Checkout</h1>
+    <p>Total: {{ total() | currency: 'PKR':'symbol-narrow' }}</p>
+  
+    @if (!hasItems()) {
+      <div class="empty">
+        <p>Your cart is empty.</p>
+        <a mat-button routerLink="/products">Browse products</a>
+      </div>
+    } @else {
+      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full">
+          <mat-label>Full name</mat-label>
+          <input matInput formControlName="fullName" />
+          @if (checkoutForm.controls.fullName.touched && checkoutForm.controls.fullName.hasError('required')) {
+            <mat-error>Name is required</mat-error>
+          }
+          @if (checkoutForm.controls.fullName.touched && checkoutForm.controls.fullName.hasError('minlength')) {
+            <mat-error>At least 3 characters</mat-error>
+          }
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" />
+          @if (checkoutForm.controls.email.touched && checkoutForm.controls.email.hasError('required')) {
+            <mat-error>Email is required</mat-error>
+          }
+          @if (checkoutForm.controls.email.touched && checkoutForm.controls.email.hasError('email')) {
+            <mat-error>Enter a valid email</mat-error>
+          }
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full">
+          <mat-label>Address</mat-label>
+          <textarea matInput rows="3" formControlName="address"></textarea>
+          @if (checkoutForm.controls.address.touched && checkoutForm.controls.address.invalid) {
+            <mat-error>Address must be at least 10 characters</mat-error>
+          }
+        </mat-form-field>
+  
+        <div class="actions">
+          <a mat-button routerLink="/cart">Back to cart</a>
+          <button mat-flat-button color="primary" type="submit">
+            Place order
+          </button>
+        </div>
+      </form>
+    }
+  </section>

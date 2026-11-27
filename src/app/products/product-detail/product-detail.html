@@ -1,0 +1,30 @@
+@if (isLoading()) {
+    <p>Loading...</p>
+  } @else if (product(); as p) {
+    <article class="detail">
+      <a mat-button routerLink="/products">
+        <mat-icon>arrow_back</mat-icon>
+        Back to products
+      </a>
+  
+      <h1>{{ p.name }}</h1>
+      <p>{{ p.description }}</p>
+  
+      <div class="price-row">
+        <span>{{ p.price | currency: 'PKR':'symbol-narrow' }}</span>
+        @if (p.originalPrice) {
+          <span class="original">{{ p.originalPrice | currency: 'PKR':'symbol-narrow' }}</span>
+        }
+      </div>
+  
+      <button mat-flat-button type="button" (click)="addToCart()">
+        Add to Cart
+      </button>
+    </article>
+  
+  }  @else {
+    <div class="missing">
+      <h2>Product not found</h2>
+      <a mat-button routerLink="/products">Back to products</a>
+    </div>
+  }

@@ -1,15 +1,35 @@
-<mat-card class="product-card">
+<mat-card class="product-card" [class.on-sale]="!!product().originalPrice">
+  @if (product().originalPrice) {
+    <span class="sale-badge">Sale</span>
+  }
+
+  <div class="card-body">
     <mat-card-header>
-        <mat-card-title>Product Name</mat-card-title>
-        <mat-card-subtitle>
-           
-            <span>Category</span>
-        </mat-card-subtitle>
+      <mat-card-title>{{ product().name }}</mat-card-title>
     </mat-card-header>
+
     <mat-card-content>
-        <p>Product Description</p>
+      <p class="description">{{ product().description }}</p>
+
+      <div class="price-row">
+        <span class="current-price"> {{ product().price | currency: 'PKR':'symbol-narrow' }}</span>
+        @if (product().originalPrice) {
+          <span class="original-price"> {{ product().originalPrice | currency: 'PKR':'symbol-narrow' }}</span>
+        }
+      </div>
     </mat-card-content>
-    <mat-card-actions>
-        <button mat-button>Add to Cart</button>
-    </mat-card-actions>
+  </div>
+
+  <mat-card-actions class="card-actions">
+    <button mat-flat-button (click)="onAddToCart()" class="btn-primary">
+      {{ addButtonLabel() }}
+    </button>
+    <a
+  mat-stroked-button
+  class="btn-secondary"
+  [routerLink]="['/products', product().id]"
+>
+  View
+</a>
+  </mat-card-actions>
 </mat-card>

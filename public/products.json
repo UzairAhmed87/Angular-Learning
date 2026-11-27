@@ -1,0 +1,68 @@
+[
+    {
+      "id": 1,
+      "name": "Wireless Headphones",
+      "description": "Premium wireless headphones with noise cancellation and 30-hour battery life.",
+      "price": 4999
+    },
+    {
+      "id": 2,
+      "name": "Smart Watch",
+      "description": "A stylish smartwatch with fitness tracking, heart rate monitoring, and notifications.",
+      "price": 8499,
+      "originalPrice": 10999
+    },
+    {
+      "id": 3,
+      "name": "Mechanical Keyboard",
+      "description": "RGB mechanical keyboard with tactile switches and customizable lighting.",
+      "price": 5999
+    },
+    {
+      "id": 4,
+      "name": "Wireless Mouse",
+      "description": "Ergonomic wireless mouse with adjustable DPI and long-lasting battery.",
+      "price": 2499,
+      "originalPrice": 3499
+    },
+    {
+      "id": 5,
+      "name": "Bluetooth Speaker",
+      "description": "Portable Bluetooth speaker with deep bass, waterproof design, and 12-hour playback.",
+      "price": 3999,
+      "originalPrice": 5499
+    },
+    {
+      "id": 6,
+      "name": "USB-C Hub",
+      "description": "Multiport USB-C hub featuring HDMI, USB 3.0, SD card reader, and power delivery.",
+      "price": 2999
+    },
+    {
+      "id": 7,
+      "name": "Laptop Stand",
+      "description": "Adjustable aluminum laptop stand designed for better posture and improved airflow.",
+      "price": 1999,
+      "originalPrice": 2799
+    },
+    {
+      "id": 8,
+      "name": "Power Bank",
+      "description": "20000mAh fast-charging power bank with dual USB ports and USB-C connectivity.",
+      "price": 4499
+    },
+    {
+      "id": 9,
+      "name": "Gaming Headset",
+      "description": "Over-ear gaming headset with surround sound, noise-canceling microphone, and RGB lighting.",
+      "price": 6499,
+      "originalPrice": 8499
+    },
+    {
+      "id": 10,
+      "name": "Webcam",
+      "description": "Full HD 1080p webcam with built-in microphone and automatic light correction.",
+      "price": 3499,
+      "originalPrice": 4999
+    }
+  ]
